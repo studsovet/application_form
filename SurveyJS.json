@@ -682,25 +682,25 @@
      "isRequired": true,
      "choices": [
       {
-       "value": "item1",
+       "value": "no",
        "text": {
         "ru": "Я котьик"
        }
       },
       {
-       "value": "item2",
+       "value": "A1-A2",
        "text": {
         "ru": "A1 - A2"
        }
       },
       {
-       "value": "item3",
+       "value": "B1-B2",
        "text": {
         "ru": "В1 - В2"
        }
       },
       {
-       "value": "item4",
+       "value": "C1+",
        "text": {
         "ru": "С1 и выше"
        }
@@ -709,7 +709,7 @@
     },
     {
      "type": "radiogroup",
-     "name": "miem",
+     "name": "miem_project",
      "visibleIf": "{grade} anyof [2, 3] and {grade} notempty",
      "title": {
       "ru": "Для второкурсников и третьекурсников из МИЭМа у нас есть особое предложение: проект, в котором начисляют часы за работу в комитете. Хотелось бы вступить?"
