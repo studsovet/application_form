@@ -7,7 +7,7 @@ config.read('config.ini')
 
 
 def get_config(key, section='default'):
-    return config[section][key]
+    return config[section].get(key, None)
 
 
 def send_tg_message(chat_id, text):
