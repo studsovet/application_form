@@ -5,7 +5,13 @@ FROM python:3.11.1
 WORKDIR /usr/src/app
 
 # Copy all files to the container
-COPY . .
+COPY ./hiring_form_app ./hiring_form_app
+COPY ./hiring_form_project ./hiring_form_project
+COPY ./templates ./templates
+COPY ./config.ini ./
+COPY ./manage.py ./
+COPY ./utils.py ./
+COPY ./requirements.txt ./
 
 # Upgrade pip
 RUN pip install --upgrade pip
@@ -18,4 +24,7 @@ RUN pip install -r requirements.txt
 ENV PYTHONDONTWRITEBYTECODE 1
 
 # PYTHONUNBUFFERED: Prevents Python from buffering stdout and stderr (equivalent to python -u option)
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED 1 
+
+RUN python manage.py makemigrations
+RUN python manage.py migrate
