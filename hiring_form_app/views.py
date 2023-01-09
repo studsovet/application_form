@@ -1,4 +1,3 @@
-import os
 import json
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -30,7 +29,7 @@ def survey(request: WSGIRequest):
                     message += f'<b>TG</b>: {value["tg"]}\n'
                 continue
             message += f'<b>{key}</b>: {value}\n'
-        utils.send_tg_message(os.environ.get("TG_CHAT_ID"), message)
+        utils.send_tg_message(utils.get_config('TG_CHAT_ID'), message)
     except Exception as exc:
         print("[handler]", "failed to send message")
         print("[handler]", exc)
