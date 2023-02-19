@@ -24,7 +24,7 @@ def survey(request: WSGIRequest):
         for key, value in data.items():
             if key == 'chat':
                 if 'vk' in value:
-                    message += f'<b>VK</b>: {value["vk"]}\n'
+                    message += f'<b>VK</b>: vk.com/{value["vk"][1:]}\n'
                 if 'tg' in value:
                     message += f'<b>TG</b>: {value["tg"]}\n'
                 continue
