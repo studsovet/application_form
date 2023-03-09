@@ -1,5 +1,5 @@
-# Use python version 3.11.1
-FROM python:3.11.1
+# Use python
+FROM python:3.11.2
 
 # Set the working directory to /usr/src/app (inside container)
 WORKDIR /usr/src/app
@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY ./hiring_form_app ./hiring_form_app
 COPY ./hiring_form_project ./hiring_form_project
 COPY ./templates ./templates
-COPY ./config.ini ./
+COPY ./config.py ./
 COPY ./manage.py ./
 COPY ./utils.py ./
 COPY ./requirements.txt ./
