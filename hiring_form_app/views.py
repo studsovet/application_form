@@ -3,18 +3,20 @@ from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.core.handlers.wsgi import WSGIRequest
+from django.middleware.csrf import get_token
 import utils
 import config
 
 
-def hiring(request):
+def index(request: WSGIRequest):
     if request.method == 'POST':
-        return hiring_submit(request)
+        return submit(request)
+    if 'csrftoken' not in request.COOKIES:
+        request.COOKIES['csrftoken'] = get_token(request)
     return render(request, 'index.html')
 
 
-@csrf_exempt  # This is a security risk, but we'll talk about that later
-def hiring_submit(request: WSGIRequest):
+def submit(request: WSGIRequest):
     if request.method != 'POST':
         print("[handler]", "Failed to handle request: not a POST request.")
         print("[handler]", request)

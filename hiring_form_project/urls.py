@@ -18,5 +18,6 @@ from hiring_form_app import views
 from django.urls import path
 
 urlpatterns = [
-    path('hiring', views.hiring)
+    path('', views.index),
+    # path('submit', views.submit)
 ]
