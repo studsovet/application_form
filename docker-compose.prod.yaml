@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   web:
+    container_name: hiring_form
+    restart: always
     build: 
       context: .
       dockerfile: Dockerfile.prod
