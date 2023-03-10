@@ -8,6 +8,7 @@ import utils
 import config
 
 
+@csrf_exempt
 def index(request: WSGIRequest):
     if request.method == 'POST':
         return submit(request)
