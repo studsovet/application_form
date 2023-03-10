@@ -19,7 +19,7 @@
 
     function sendDataToServer(survey) {
         $.ajax({
-            url: '/survey',
+            url: '/hiring',
             type: 'POST',
             data: JSON.stringify(survey.data),
             contentType: 'application/json; charset=utf-8',

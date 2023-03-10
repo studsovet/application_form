@@ -7,12 +7,14 @@ import utils
 import config
 
 
-def index(request):
+def hiring(request):
+    if request.method == 'POST':
+        return hiring_submit(request)
     return render(request, 'index.html')
 
 
 @csrf_exempt  # This is a security risk, but we'll talk about that later
-def survey(request: WSGIRequest):
+def hiring_submit(request: WSGIRequest):
     if request.method != 'POST':
         print("[handler]", "Failed to handle request: not a POST request.")
         print("[handler]", request)
