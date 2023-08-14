@@ -8,5 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     command: gunicorn --bind 0.0.0.0:8000 hiring_form_project.wsgi:application
-    ports:
-      - 8000:8000
+    labels:
+      traefik.enable: true
+      traefik.http.routers.hiring_form.rule: Host(`dc.studsovet.me`)
+      traefik.http.services.hiring_form.loadbalancer.server.port: 8000
