@@ -17,6 +17,9 @@ services:
       traefik.http.routers.hiring_form.tls.certresolver: myresolver
       traefik.http.routers.hiring_form.rule: Host(`dc.studsovet.me`)
       traefik.http.services.hiring_form.loadbalancer.server.port: 8000
+      traefik.http.routers.hiring_form.middlewares: redirect-regex-hiring
+      traefik.http.middlewares.redirect-regex-hiring.stripprefix.prefixes: /hiring
+      
 
 networks:
   proxy:
